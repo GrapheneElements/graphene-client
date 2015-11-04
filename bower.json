@@ -13,7 +13,7 @@
   ],
   "main": "graphene-client.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/marcomag89/graphene-client/",
+  "homepage": "https://github.com/GrapheneElements/graphene-client/",
   "ignore": [
     "/.*",
     "/test/",
