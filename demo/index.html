@@ -9,40 +9,44 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>graphene-client Demo</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../graphene-client.html">
-  </head>
-  <body unresolved>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>graphene-client Demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../graphene-client.html">
+</head>
+<body unresolved>
 
-    <p>An example of <code>&lt;graphene-client&gt;</code>:</p>
+<p>An example of <code>&lt;graphene-client&gt;</code>:</p>
 
-    <p>Make words! <button id="saybtn">Say Something</button></p>
-    <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
+<p>Make words!
+  <button id="saybtn">Say Something</button>
+</p>
+<p>Make lasers!
+  <button id="laserbtn">Fire lasers</button>
+</p>
 
-    <graphene-client author='{"name": "Lord Meowser", "image": "http://placekitten.com/g/200/300"}' fancy>
-      <h2>Hello graphene-client</h2>
-    </graphene-client>
+<graphene-client author='{"name": "Lord Meowser", "image": "http://placekitten.com/g/200/300"}' fancy>
+  <h2>Hello graphene-client</h2>
+</graphene-client>
 
-    <script>
-      var seedElement = document.querySelector('graphene-client');
-      
-      document.querySelector('#saybtn').addEventListener('click', function() {
-        alert(seedElement.sayHello('Hallo!'));
-      });
-      
-      document.querySelector('#laserbtn').addEventListener('click', function() {
-        seedElement.fireLasers();
-      });
-      
-      document.addEventListener("graphene-client-lasers", function(e) {
-        console.log(e.detail.sound);
-      });
-      
-    </script>
+<script>
+  var seedElement = document.querySelector('graphene-client');
 
-  </body>
+  document.querySelector('#saybtn').addEventListener('click', function () {
+    alert(seedElement.sayHello('Hallo!'));
+  });
+
+  document.querySelector('#laserbtn').addEventListener('click', function () {
+    seedElement.fireLasers();
+  });
+
+  document.addEventListener("graphene-client-lasers", function (e) {
+    console.log(e.detail.sound);
+  });
+
+</script>
+
+</body>
 </html>
