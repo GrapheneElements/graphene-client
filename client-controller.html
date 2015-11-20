@@ -208,7 +208,7 @@
 
     _checkResponseErrors:function(json){
       if(!!json.error) {
-        var error = new Error(json.error.message);
+        var error = new Error(JSON.stringify(json.error));
         error.json = json;
         throw error;
       }
@@ -249,7 +249,7 @@
   ClientController.settingsKey         = 'graphene-settings';
   ClientController.settingScaffolding  = {version:0, selectedProfile:'', profiles:{}};
   ClientController.instance            = null;
-  ClientController.checkStatusInterval = 60000;
+  ClientController.checkStatusInterval = 10000;
 
   ClientController.getInstance=function(){
     if(ClientController.instance === null){ClientController.instance = new ClientController();}
