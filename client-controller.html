@@ -249,7 +249,7 @@
   ClientController.settingsKey         = 'graphene-settings';
   ClientController.settingScaffolding  = {version:0, selectedProfile:'', profiles:{}};
   ClientController.instance            = null;
-  ClientController.checkStatusInterval = 10000;
+  ClientController.checkStatusInterval = 60000;
 
   ClientController.getInstance=function(){
     if(ClientController.instance === null){ClientController.instance = new ClientController();}
