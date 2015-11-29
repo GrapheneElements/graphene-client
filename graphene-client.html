@@ -83,7 +83,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _fireReady:function(){
         if(!!this.settings  && !!this.status && this.status.online && !this.ready){
           this.ready=true;
-          this.fire('ready');
+          this.fire('client-ready');
         }
       },
 
