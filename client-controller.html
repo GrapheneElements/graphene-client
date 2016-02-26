@@ -160,6 +160,7 @@
           status.appAuthorized = (!!info.application.name);
           status.online        = true;
           status.loading       = false;
+          Object.assign(status, info);
           if(this._statusHasChanged(status)){
             this.status = status;
             this.fireClientStatusChange(this.status);
