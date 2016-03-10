@@ -8,93 +8,19 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="client-behavior.html">
-<link rel="import" href="client-controller.html">
-<link rel="import" href="../../conf/api-settings.html">
 
 <dom-module id="graphene-client">
-  <template></template>
-  <script>
-  (function() {
-    'use strict';
-    var ctrl = ClientController.getInstance();
-    //console.log("Client controller: ",ctrl);
+    <template></template>
+    <script src="client-behavior.js"></script>
+    <script>
+        (function() {
+            'use strict';
 
-    Polymer({
-      is: 'graphene-client',
-      behavior:[clientBehavior],
+            Polymer({
+                is:        'graphene-client',
+                behaviors: [document.Graphene.clientBehavior],
 
-      attached:function(){
-        ctrl.pushClient(this);
-      },
-
-
-      addProfile: function (name,serverUrl,apiKey,accessToken,otherSettings) {
-        ctrl.addProfile(name, serverUrl, apiKey, accessToken, otherSettings);
-      },
-
-      selectProfile:function(profileName){
-        ctrl.setCurrentProfile(profileName);
-      },
-
-      getProfiles:function(){
-        return this.settings.profiles();
-      },
-
-      getProfile:function(name){
-        //console.log(name);
-        try{
-         return this.settings.profiles[name];
-        }catch(e){
-          return {};
-        }
-      },
-
-      logout:function(accessToken){
-        ctrl.logout(accessToken);
-      },
-
-      fetch:function(url,body,method,headers){
-        var service = url.replace(ctrl.getProfileSetting('server'),'');
-        return this.gFetch(service,body,method,headers);
-      },
-
-      gFetch:function(service,body,method,headers){
-        return ctrl.gFetch(service,body,method,headers);
-      },
-
-      docOf:function(action){
-        var action = action.replace('.','__');
-        return ctrl.gFetch('/system/doc/'+action);
-      },
-
-      _onSettingChange:function(currentSettings){
-        this.settings = currentSettings;
-        this.fire('settings-change',this.settings);
-        this._fireReady();
-      },
-
-      _onClientStatusChange:function(currentClientStatus){
-        this.status = currentClientStatus;
-        this.fire('status-change',this.status);
-        this._fireReady();
-      },
-
-      _fireReady:function(){
-        if(!!this.settings  && !!this.status && this.status.online && !this.ready){
-          this.ready=true;
-          this.fire('client-ready');
-        }
-      },
-
-      properties : {
-        ready           : {type:Boolean, value:false,     notify:true},
-        settings        : {type:Object,  value:null,      notify:true},
-        status          : {type:Object,  value:'loading', notify:true},
-        selectedProfile : {type:Object,  computed:'getProfile(settings.selectedProfile)'}
-      }
-
-    });
-  })();
-  </script>
+            });
+        })();
+    </script>
 </dom-module>
