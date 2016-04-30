@@ -11,6 +11,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="graphene-client">
     <template></template>
+    <script src="md5.min.js"></script>
+    <script src="graphene-static.js"></script>
     <script src="client-behavior.js"></script>
     <script>
         (function() {
@@ -18,8 +20,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             Polymer({
                 is:        'graphene-client',
-                behaviors: [document.Graphene.clientBehavior],
-
+                behaviors: [
+                    Graphene.behaviors.clientBehavior
+                ]
             });
         })();
     </script>
